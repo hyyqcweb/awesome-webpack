@@ -18,11 +18,22 @@ module.exports = {
 					loader: "babel-loader",
 					options: {
 						presets: [
-							"env", "react"
+							"env", "react" // jsx
 						]
 					}
 				},
 				exclude: /node_modules/
+			},
+			{
+				test: /\.css$/,
+				use: [
+					{
+						loader: "style-loader"
+					},
+					{
+						loader: "css-loader"
+					}
+				]
 			}
 		]
 	}
