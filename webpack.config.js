@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
 	entry: __dirname + '/app/main.js', // 入口
 	output: {
@@ -46,5 +48,8 @@ module.exports = {
 				]
 			}
 		]
-	}
+	},
+	plugins: [
+		new webpack.BannerPlugin('版权所有,翻版必究!')
+	]
 }
