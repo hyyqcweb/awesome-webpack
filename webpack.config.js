@@ -1,14 +1,15 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: __dirname + '/app/main.js', // 入口
 	output: {
-		path: __dirname + '/public', // 打包后的文件存放的地方
+		path: __dirname + '/build', // 打包后的文件存放的地方
 		filename: 'bundle.js'
 	},
 	devtool: 'eval-source-map', // 调式bug
 	devServer: {
-		contentBase: './public', // 本地服务器所加载的页面所在的目录
+		contentBase: './build', // 本地服务器所加载的页面所在的目录
 		historyApiFallback: true, // 不跳转
 		inline: true // 实时刷新
 	},
@@ -50,6 +51,10 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.BannerPlugin('版权所有,翻版必究!')
+		new webpack.BannerPlugin('版权所有,翻版必究!'), // plugins用法
+		new HtmlWebpackPlugin({
+			template: __dirname + "/app/index.tmpl.html",
+			filename: 'index.html'
+		})
 	]
 }
