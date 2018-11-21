@@ -11,7 +11,8 @@ module.exports = {
 	devServer: {
 		contentBase: './build', // 本地服务器所加载的页面所在的目录
 		historyApiFallback: true, // 不跳转
-		inline: true // 实时刷新
+		inline: true, // 实时刷新
+		hot: true, // 热加载, 大名鼎鼎的 hmr
 	},
 	module: {
 		rules: [
@@ -55,6 +56,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: __dirname + "/app/index.tmpl.html",
 			filename: 'index.html'
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin() // 热加载插件
 	]
 }
