@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtarctTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	entry: __dirname + '/app/main.js', // 入口
@@ -62,6 +63,12 @@ module.exports = {
 		// 下面三个压缩代码
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.optimize.UglifyJsPlugin(),
-		new ExtarctTextPlugin('style.css')
+		new ExtarctTextPlugin('style.css'),
+		// 清除build 废弃文件
+		new CleanWebpackPlugin('build/*.*', {
+			root: __dirname,
+			verbose: true,
+			dry: false
+		})
 	]
 }
