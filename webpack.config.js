@@ -6,7 +6,7 @@ module.exports = {
 	entry: __dirname + '/app/main.js', // 入口
 	output: {
 		path: __dirname + '/build', // 打包后的文件存放的地方
-		filename: 'bundle.js'
+		filename: 'bundle-[hash].js' // 控制缓存
 	},
 	devtool: 'eval-source-map', // 调式bug
 	devServer: {

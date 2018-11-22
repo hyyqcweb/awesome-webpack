@@ -5,7 +5,7 @@ module.exports = {
 	entry: __dirname + '/app/main.js', // 入口
 	output: {
 		path: __dirname + '/build', // 打包后的文件存放的地方
-		filename: 'bundle.js'
+		filename: 'bundle-[hash:5].js' // 控制缓存[hash:5]5位
 	},
 	devtool: 'null', // 和 dev环境不错, 改成null 大大压缩打包代码
 	devServer: {
